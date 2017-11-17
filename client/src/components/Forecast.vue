@@ -1,0 +1,56 @@
+<template>
+	<div v-if="dailyWeather[2]">
+		<div class="forecast-wrapper" v-for="day in dailyWeather">
+			<div class="day">
+				<h1>{{ timeToString(day.time) }}</h1>
+			</div>
+			<div class="temp">
+				<h1>{{ Math.floor(day.temperatureHigh) }}&deg;F / {{ Math.floor(day.temperatureLow) }}&deg;F</h1>
+			</div>
+			<div class="weather-icon">
+				<h1><i class="wi wi-day-sunny"></i></h1>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+	/* eslint-disable */
+  name: 'forecast',
+  props: ['dailyWeather'],
+  methods: {
+  	timeToString(date) {
+      let options = {weekday: 'long'}
+      let dateString = new Date(date * 1000).toLocaleDateString('en-US', options)
+      return dateString
+    }
+  }
+}
+</script>
+
+<style scoped>
+	.forecast-wrapper {
+		display: inline-flex;
+		width: 100%;
+		border-bottom: 1px solid rgb(119, 126, 142);
+	}
+
+	.day, .temp, .weather-icon {
+		width: 33.3%;
+	}
+
+	h1 {
+		font-weight: 100;
+	}
+
+	@media screen and (max-width: 650px) {
+		h1 {
+			font-size: 1rem;
+		}
+
+		i {
+			font-size: 1.2rem;
+		}
+	}
+</style>
