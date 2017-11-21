@@ -32,8 +32,9 @@ export default {
 <style scoped>
 	.forecast-wrapper {
 		display: inline-flex;
+		margin-bottom: 9px;
 		width: 100%;
-		border-bottom: 1px solid rgb(119, 126, 142);
+		border-bottom: 1px solid #BDBDBD;
 	}
 
 	.day, .temp, .weather-icon {

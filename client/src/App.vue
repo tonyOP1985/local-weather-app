@@ -2,11 +2,11 @@
   <div id="app">
     <div class="wrapper">
       <header>
-        <h1 class="">Local Weather</h1>
+        <!-- <h1 class="">Local Weather</h1> -->
         <p class="">This is a simple weather app built with Vue.js, Node.js, Express.js, and Forecast.io.</p>
       </header>
       <Search v-on:formSubmit="getGPSCoordinates"></Search>
-      <CurrentWeather v-bind:weather="weather"></CurrentWeather>
+      <CurrentWeather v-bind:weather="weather" v-bind:cityName="cityName"></CurrentWeather>
       <Forecast v-bind:dailyWeather="dailyWeather"></Forecast>
     </div>
   </div>
@@ -29,6 +29,7 @@ export default {
     return {
       weather: {},
       city: '',
+      cityName: '',
       geocode: '',
       address: '',
       geoCoords: '',
@@ -40,6 +41,7 @@ export default {
     getGPSCoordinates (text) {
       axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${text}&key=AIzaSyDNqcVE7gtu1f9gB1LxQ8cJFQcl1sW1utM`)
       .then((response) => {
+        this.cityName = response.data.results[0].formatted_address
         this.geocode = response.data.results[0].geometry.location
         this.address = `${this.geocode.lat},${this.geocode.lng}`
         this.postWeather()
@@ -71,6 +73,7 @@ export default {
   },
   mounted () {
     this.getGeolocation()
+    this.cityName = 'Current Location'
   }
 }
 </script>
@@ -79,18 +82,34 @@ export default {
   #app {
     height: auto;
     font-family: 'Open Sans', sans-serif;
+    color: #212121
+    /*background-image: url(./assets/grassland.jpg);*/
   }
 
   .wrapper {
-    width: 100%;
-    height: 100vh;
+    width: 70%;
+    height: 100%;
+    /*background-color: rgba(139, 169, 238, 0.5);*/
     margin: 0 auto;
     text-align: center;
   }
 
   header {
-    background-color: rgb(139, 169, 238);
     padding: 10px;
-    color: rgb(255, 255, 255);
+    border: 1px solid black;
+    background-color: #303F9F;
+    color: #FFFFFF;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .wrapper {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 627px) {
+    header > h1 {
+      font-size: 1rem;
+    }
   }
 </style>
