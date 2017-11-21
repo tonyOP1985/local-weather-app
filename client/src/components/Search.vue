@@ -30,56 +30,41 @@ export default {
 <style scoped>
 	.search-body {
 		width: 100%;
-		display: flex;
-		justify-content: center;
-		margin-top: 10px;
+		height: 50px;
+		background: black;
+	}
+
+	form {
+		width: 100%;
 	}
 
 	.search {
 		width: 100%;
-		position: relative;
 	}
 
 	input {
-		float: left;
-		width: 100%;
-		border: 3px solid #3F51B5;
-		padding: 5px;
-		height: 20px;
-		border-radius: 5px;
+		margin-top: 10px;
+		padding-bottom: 8px;
+		width: 50%;
+		color: white;
+		background: black;
+		border: none;
 		outline: none;
-		color: black;
 	}
 
 	input:focus {
-		color: #3F51B5;
+		border-bottom: 1px solid rgb(255, 255, 255);
 	}
 
 	button {
-		position: absolute;
-		right: -15px;
-		width: 40px;
-		height: 36px;
-		border: 1px solid #3F51B5;
-		background: #3F51B5;
-		text-align: center;
-		color: #fff;
-		border-radius: 5px;
+		width: 48px;
+		height: 48px;
+		background: rgb(0, 0, 0);
+		border: none;
 		cursor: pointer;
-		font-size: 20px;
-	}
-	
-	form {
-		width: 30%;
-		position: absolute;
-		left: 49%;
-		top: 16%;
-		transform: translate(-50%, -50%);
 	}
 
-	@media screen and (max-width: 760px) {
-		form {
-			width: 70%;
-		}
+	i {
+		color: rgb(255, 255, 255);
 	}
 </style>
