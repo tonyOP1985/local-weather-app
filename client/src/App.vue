@@ -3,6 +3,7 @@
     <div class="wrapper">
       <Search v-on:formSubmit="getGPSCoordinates"></Search>
       <CurrentWeather v-bind:weather="weather" v-bind:cityName="cityName"></CurrentWeather>
+      <CurrentDetails v-bind:weather="weather" ></CurrentDetails>
       <hr>
       <div class="hourly">
         <h1>Hourly Tempertures</h1>
@@ -25,6 +26,7 @@ import Search from './components/Search'
 import CurrentWeather from './components/CurrentWeather'
 import Forecast from './components/Forecast'
 import Hourly from './components/Hourly'
+import CurrentDetails from './components/CurrentDetails'
 import axios from 'axios'
 
 export default {
@@ -33,7 +35,8 @@ export default {
     Search,
     CurrentWeather,
     Forecast,
-    Hourly
+    Hourly,
+    CurrentDetails
   },
   data () {
     return {
@@ -86,7 +89,6 @@ export default {
   mounted () {
     this.getGeolocation()
     this.cityName = 'Current Location'
-    this.getWorldWeather()
   }
 }
 </script>
@@ -114,9 +116,14 @@ export default {
   }
 
   footer {
+    height: 50px;
     padding: 10px;
     background-color: #00BCD4;
     color: #FFFFFF;
+  }
+
+  footer > p {
+    margin-top: 15px;
   }
 
   .hourly > h1 {
@@ -132,6 +139,12 @@ export default {
   @media screen and (max-width: 1000px) {
     .wrapper {
       width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .wrapper {
+      width: 1000px;
     }
   }
 

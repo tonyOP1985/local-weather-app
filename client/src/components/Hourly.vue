@@ -11,6 +11,7 @@
 
 <script>
 export default {
+	/* eslint-disable */
   name: 'hourly',
   props: ['hours'],
   data () {
