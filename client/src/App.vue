@@ -1,14 +1,21 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <!-- <header> -->
-        <!-- <h1 class="">Local Weather</h1> -->
-       <!--  <p class="">This is a simple weather app built with Vue.js, Node.js, Express.js, and Forecast.io.</p>
-      </header> -->
       <Search v-on:formSubmit="getGPSCoordinates"></Search>
       <CurrentWeather v-bind:weather="weather" v-bind:cityName="cityName"></CurrentWeather>
+      <hr>
+      <div class="hourly">
+        <h1>Hourly Tempertures</h1>
+      </div>
       <Hourly v-bind:hours="hours"></Hourly>
+      <hr>
+      <div class="weekly">
+        <h1>Weekly Forecast</h1>
+      </div>
       <Forecast v-bind:dailyWeather="dailyWeather"></Forecast>
+      <footer>
+        <p>This is a simple weather app built with Vue.js, Node.js, Express.js, and Forecast.io.</p>
+      </footer>
     </div>
   </div>
 </template>
@@ -56,7 +63,7 @@ export default {
       axios.post('http://localhost:3000', { body: this.address })
         .then((response) => {
           this.weather = response.data
-          this.hours = response.data.hourly.data.slice(0, 12)
+          this.hours = response.data.hourly.data.slice(0, 16)
           this.dailyWeather = response.data.daily.data
           // remove current day since that is already shown in CurrentWeather
           this.dailyWeather.shift()
@@ -100,11 +107,26 @@ export default {
     text-align: center;
   }
 
-  header {
+  hr {
+    width: 50%; 
+    color: #BDBDBD;
+    margin: 0 auto;
+  }
+
+  footer {
     padding: 10px;
-    border: 1px solid black;
-    background-color: #C5CAE9;
+    background-color: #00BCD4;
     color: #FFFFFF;
+  }
+
+  .hourly > h1 {
+    color: #448AFF;
+    font-size: 1rem;
+  }
+
+  .weekly > h1 {
+    color: #448AFF;
+    font-size: 1.5rem;
   }
 
   @media screen and (max-width: 1000px) {
@@ -116,6 +138,12 @@ export default {
   @media screen and (max-width: 627px) {
     header > h1 {
       font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    hr {
+      width: 100%;
     }
   }
 </style>

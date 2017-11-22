@@ -1,9 +1,9 @@
 <template>
 	<div class="hourly-wrapper">
-		<ul v-for="hour in hours">
-			<li>
-				<p>{{ getHour(hour.time) }}</p>
-				<p>{{ Math.ceil(hour.temperature) }}&deg;F</p>
+		<ul>
+			<li v-for="(hour,index) in hours" v-if="index % 2 === 0">
+				<p class="hour">{{ getHour(hour.time) }}</p>
+				<p class="temp">{{ Math.ceil(hour.temperature) }}&deg;F</p>
 			</li>
 		</ul>
 	</div>
@@ -31,8 +31,27 @@ export default {
 <style>
 	ul {
 		display: inline-flex;
+		margin: 0;
+		padding-left: 0;
 	}
+
 	li {
 		list-style: none;
+		margin: 0 10px;
 	}
+
+	p {
+		margin-top: 0;
+	}
+
+	.hour {
+		margin-bottom: 5px;
+	}
+
+	@media screen and (max-width: 1200px) {
+		li {
+			font-size: 0.75rem;
+		}
+	}
+
 </style>

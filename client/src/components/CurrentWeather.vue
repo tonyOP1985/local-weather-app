@@ -33,20 +33,18 @@ export default {
 	.current-weather-wrapper {
 		width: 100%;
 		height: 140px;
-		margin-top: 15px;
 		display: inline-flex;
 	}
 
 	.current {
 		width: 40%;
 		margin: 0 auto;
-		/*background-color: #3F51B5;*/
-		/*color: rgb(255, 255, 255);*/
 	}
 
 	.current-wrapper {
 		display: flex;
 		justify-content: space-between;
+
 	}
 
 	.current-temp {
@@ -77,6 +75,22 @@ export default {
 	@media screen and (max-width: 627px) {
 		.current-weather-wrapper {
 			margin-top: 30px;
+		}
+	}
+
+	@media screen and (max-width: 530px) {
+		.current-temp > h1 {
+			font-size: 1.5rem;
+		}
+
+		.current-temp > div {
+			font-size: 0.75rem;
+		}
+	}
+
+	@media screen and (max-width: 402px) {
+		.current {
+			width: 100%;
 		}
 	}
 </style>

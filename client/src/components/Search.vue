@@ -31,7 +31,7 @@ export default {
 	.search-body {
 		width: 100%;
 		height: 60px;
-		background: black;
+		background: #00BCD4;
 	}
 
 	form {
@@ -46,10 +46,14 @@ export default {
 		margin-top: 10px;
 		padding-bottom: 8px;
 		width: 50%;
-		color: white;
-		background: black;
+		color: #fff;
+		background: #00BCD4;
 		border: none;
 		outline: none;
+	}
+
+	input::placeholder {
+		color: white;
 	}
 
 	input:focus {
@@ -59,7 +63,7 @@ export default {
 	button {
 		width: 48px;
 		height: 48px;
-		background: rgb(0, 0, 0);
+		background: #00BCD4;
 		border: none;
 		cursor: pointer;
 	}
