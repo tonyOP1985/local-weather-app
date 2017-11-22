@@ -1,5 +1,5 @@
 <template>
-	<div v-if="dailyWeather[2]">
+	<div v-if="dailyWeather[2]" class="daily-weather">
 		<div class="forecast-wrapper" v-for="day in dailyWeather">
 			<div class="day">
 				<h1>{{ timeToString(day.time) }}</h1>
@@ -43,6 +43,7 @@ export default {
 
 	h1 {
 		font-weight: 100;
+		font-size: 1rem;
 	}
 
 	@media screen and (max-width: 650px) {
@@ -52,6 +53,23 @@ export default {
 
 		i {
 			font-size: 1.2rem;
+		}
+	}
+
+	@media screen and (min-width: 1000px) {
+		.daily-weather {
+			display: flex;
+			justify-content: flex-start;
+		}
+
+		.forecast-wrapper {
+			flex-wrap: wrap;
+			border: 1px solid #BDBDBD;
+		}
+
+		.day, .temp, .weather-icon {
+			width: 100%;
+			height: 80px;
 		}
 	}
 </style>
