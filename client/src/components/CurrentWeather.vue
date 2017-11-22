@@ -17,7 +17,6 @@
 				</div>
 			</div>
 		</div>
-		
 	</div>
 </template>
 
@@ -33,6 +32,7 @@ export default {
 	.current-weather-wrapper {
 		width: 100%;
 		height: 140px;
+		margin: 10px 0 15px 0;
 		display: inline-flex;
 	}
 
@@ -44,7 +44,11 @@ export default {
 	.current-wrapper {
 		display: flex;
 		justify-content: space-between;
+	}
 
+	.city-name > p{
+		font-size: 1.5rem;
+		width: 100%;
 	}
 
 	.current-temp {
@@ -64,7 +68,7 @@ export default {
 	}
 
 	.current-conditions > h1 {
-		/*margin-top: 45px;*/
+		margin-top: 0;
 	}
 
 	.wi {
@@ -86,9 +90,9 @@ export default {
 		.current-temp > div {
 			font-size: 0.75rem;
 		}
-	}
+ 	}
 
-	@media screen and (max-width: 402px) {
+	@media screen and (max-width: 470px) {
 		.current {
 			width: 100%;
 		}

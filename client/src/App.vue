@@ -47,7 +47,8 @@ export default {
       address: '',
       geoCoords: '',
       dailyWeather: [],
-      hours: []
+      hours: [],
+      windowWidth: 0
     }
   },
   methods: {
