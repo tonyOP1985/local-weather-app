@@ -35,13 +35,13 @@ export default {
 		height: 140px;
 		margin-top: 15px;
 		display: inline-flex;
-		border-bottom: 1px solid #BDBDBD;
 	}
 
 	.current {
 		width: 40%;
-		background-color: #3F51B5;
-		color: rgb(255, 255, 255);
+		margin: 0 auto;
+		/*background-color: #3F51B5;*/
+		/*color: rgb(255, 255, 255);*/
 	}
 
 	.current-wrapper {
@@ -51,7 +51,7 @@ export default {
 
 	.current-temp {
 		width: 50%;
-		color: white;
+		/*color: white;*/
 	}
 
 	.current-temp > h1 {

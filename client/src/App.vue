@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <header>
+      <!-- <header> -->
         <!-- <h1 class="">Local Weather</h1> -->
-        <p class="">This is a simple weather app built with Vue.js, Node.js, Express.js, and Forecast.io.</p>
-      </header>
+       <!--  <p class="">This is a simple weather app built with Vue.js, Node.js, Express.js, and Forecast.io.</p>
+      </header> -->
       <Search v-on:formSubmit="getGPSCoordinates"></Search>
       <CurrentWeather v-bind:weather="weather" v-bind:cityName="cityName"></CurrentWeather>
+      <Hourly v-bind:hours="hours"></Hourly>
       <Forecast v-bind:dailyWeather="dailyWeather"></Forecast>
     </div>
   </div>
@@ -16,6 +17,7 @@
 import Search from './components/Search'
 import CurrentWeather from './components/CurrentWeather'
 import Forecast from './components/Forecast'
+import Hourly from './components/Hourly'
 import axios from 'axios'
 
 export default {
@@ -23,7 +25,8 @@ export default {
   components: {
     Search,
     CurrentWeather,
-    Forecast
+    Forecast,
+    Hourly
   },
   data () {
     return {
@@ -33,7 +36,8 @@ export default {
       geocode: '',
       address: '',
       geoCoords: '',
-      dailyWeather: []
+      dailyWeather: [],
+      hours: []
     }
   },
   methods: {
@@ -52,6 +56,7 @@ export default {
       axios.post('http://localhost:3000', { body: this.address })
         .then((response) => {
           this.weather = response.data
+          this.hours = response.data.hourly.data.slice(0, 12)
           this.dailyWeather = response.data.daily.data
           // remove current day since that is already shown in CurrentWeather
           this.dailyWeather.shift()
@@ -74,6 +79,7 @@ export default {
   mounted () {
     this.getGeolocation()
     this.cityName = 'Current Location'
+    this.getWorldWeather()
   }
 }
 </script>
@@ -82,12 +88,12 @@ export default {
   #app {
     height: auto;
     font-family: 'Open Sans', sans-serif;
-    color: #212121
+    color: #212121;
     /*background-image: url(./assets/grassland.jpg);*/
   }
 
   .wrapper {
-    width: 70%;
+    width: 80%;
     height: 100%;
     /*background-color: rgba(139, 169, 238, 0.5);*/
     margin: 0 auto;
@@ -97,7 +103,7 @@ export default {
   header {
     padding: 10px;
     border: 1px solid black;
-    background-color: #303F9F;
+    background-color: #C5CAE9;
     color: #FFFFFF;
   }
 

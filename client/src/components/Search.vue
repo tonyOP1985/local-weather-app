@@ -30,7 +30,7 @@ export default {
 <style scoped>
 	.search-body {
 		width: 100%;
-		height: 50px;
+		height: 60px;
 		background: black;
 	}
 
@@ -66,5 +66,6 @@ export default {
 
 	i {
 		color: rgb(255, 255, 255);
+		font-size: 1.5rem;
 	}
 </style>
