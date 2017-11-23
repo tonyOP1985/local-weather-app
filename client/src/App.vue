@@ -78,9 +78,8 @@ export default {
       // sends request to local server to make make request from forecast.io
       axios.post('http://localhost:3000', { body: this.address })
         .then((response) => {
-          this.weather = response.data
+          this.weather = response.data.currently
           this.setIcon()
-          console.log(this.weather)
           this.hours = response.data.hourly.data.slice(0, 16)
           this.dailyWeather = response.data.daily.data
           // remove current day since that is already shown in CurrentWeather
@@ -101,10 +100,10 @@ export default {
       }
     },
     setIcon () {
-  		let icon = this.weather.currently.icon
+  		let icon = this.weather.icon
   		for (let i = 0; i < this.iconList.length; i++) {
   			if (icon === this.iconList[i].name) {
-  				this.weather.currently.icon = this.iconList[i].wi
+  				this.weather.icon = this.iconList[i].wi
   			}
   		}
   	}

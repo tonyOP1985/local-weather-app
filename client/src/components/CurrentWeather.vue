@@ -8,12 +8,12 @@
 			</div>
 			<div class="current-wrapper">
 				<div class="current-temp">
-					<h1>{{ Math.floor(this.weather.currently.temperature) }}&deg;F</h1>
-					<div>{{ weather.currently.summary }}</div>
-					<div>feels like {{ Math.floor(this.weather.currently.apparentTemperature) }}&deg;F</div>
+					<h1>{{ Math.floor(weather.temperature) }}&deg;F</h1>
+					<div>{{ weather.summary }}</div>
+					<div>feels like {{ Math.floor(weather.apparentTemperature) }}&deg;F</div>
 				</div>
 				<div class="current-conditions">
-					<h1><i :class="this.weather.currently.icon"></i></h1>
+					<h1><i :class="weather.icon"></i></h1>
 				</div>
 			</div>
 		</div>

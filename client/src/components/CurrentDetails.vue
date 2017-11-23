@@ -3,29 +3,29 @@
 		<div class="details-right">
 			<div class="details">
 				<label>Wind</label>
-				<span>{{ degToCompass(weather.currently.windBearing) }} {{ Math.ceil(weather.currently.windSpeed) }} mph </span>
+				<span>{{ degToCompass(weather.windBearing) }} {{ Math.ceil(weather.windSpeed) }} mph </span>
 			</div>
 			<div class="details">
 				<label>Humidity</label>
-				<span>{{ weather.currently.humidity * 100 }}%</span>
+				<span>{{ Math.ceil(weather.humidity * 100) }}%</span>
 			</div>
 			<div class="details">
 				<label>Dew Point</label>
-				<span>{{ Math.ceil(weather.currently.dewPoint) }}&deg;</span>
+				<span>{{ Math.ceil(weather.dewPoint) }}&deg;</span>
 			</div>
 		</div>
 		<div class="details-left">
 			<div class="details">
 				<label>Pressure</label>
-				<span>{{ Math.ceil(weather.currently.pressure) }} mb</span>
+				<span>{{ Math.ceil(weather.pressure) }} mb</span>
 			</div>
 			<div class="details">
 				<label>Visibility</label>
-				<span>{{ Math.ceil(weather.currently.visibility) }} mi</span>
+				<span>{{ Math.ceil(weather.visibility) }} mi</span>
 			</div>
 			<div class="details">
 				<label>UV Index</label>
-				<span>{{ weather.currently.uvIndex }}</span>
+				<span>{{ weather.uvIndex }}</span>
 			</div>
 		</div>
 	</div>
