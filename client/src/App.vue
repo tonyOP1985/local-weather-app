@@ -79,9 +79,10 @@ export default {
       axios.post('http://localhost:3000', { body: this.address })
         .then((response) => {
           this.weather = response.data
+          this.setIcon()
+          console.log(this.weather)
           this.hours = response.data.hourly.data.slice(0, 16)
           this.dailyWeather = response.data.daily.data
-          console.log(this.dailyWeather)
           // remove current day since that is already shown in CurrentWeather
           this.dailyWeather.shift()
         })
@@ -98,7 +99,15 @@ export default {
           this.postWeather()
         })
       }
-    }
+    },
+    setIcon () {
+  		let icon = this.weather.currently.icon
+  		for (let i = 0; i < this.iconList.length; i++) {
+  			if (icon === this.iconList[i].name) {
+  				this.weather.currently.icon = this.iconList[i].wi
+  			}
+  		}
+  	}
   },
   mounted () {
     this.getGeolocation()
