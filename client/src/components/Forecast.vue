@@ -8,7 +8,7 @@
 				<h1>{{ Math.floor(day.temperatureHigh) }}&deg;F / {{ Math.floor(day.temperatureLow) }}&deg;F</h1>
 			</div>
 			<div class="weather-icon">
-				<h1><i class="wi wi-day-sunny"></i></h1>
+				<h1><i v-bind:class="setIcon(day.icon)"></i></h1>
 			</div>
 		</div>
 	</div>
@@ -18,13 +18,20 @@
 export default {
 	/* eslint-disable */
   name: 'forecast',
-  props: ['dailyWeather'],
+  props: ['dailyWeather', 'iconList'],
   methods: {
   	timeToString(date) {
       let options = {weekday: 'long'}
       let dateString = new Date(date * 1000).toLocaleDateString('en-US', options)
       return dateString
-    }
+    },
+    setIcon (icon) {
+  		for (let i = 0; i < this.iconList.length; i++) {
+  			if (icon === this.iconList[i].name) {
+  				return this.iconList[i].wi
+  			}
+  		}
+  	}
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <div id="app">
     <div class="wrapper">
       <Search v-on:formSubmit="getGPSCoordinates"></Search>
-      <CurrentWeather v-bind:weather="weather" v-bind:cityName="cityName"></CurrentWeather>
+      <CurrentWeather v-bind:weather="weather" v-bind:cityName="cityName" v-bind:iconList="iconList"></CurrentWeather>
       <CurrentDetails v-bind:weather="weather" ></CurrentDetails>
       <hr>
       <div class="hourly">
@@ -13,7 +13,7 @@
       <div class="weekly">
         <h1>Weekly Forecast</h1>
       </div>
-      <Forecast v-bind:dailyWeather="dailyWeather"></Forecast>
+      <Forecast v-bind:dailyWeather="dailyWeather" v-bind:iconList="iconList"></Forecast>
       <footer>
         <p>This is a simple weather app built with Vue.js, Node.js, Express.js, and Forecast.io.</p>
       </footer>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Search from './components/Search'
 import CurrentWeather from './components/CurrentWeather'
 import Forecast from './components/Forecast'
@@ -48,7 +49,18 @@ export default {
       geoCoords: '',
       dailyWeather: [],
       hours: [],
-      windowWidth: 0
+      iconList: [
+        { name: 'clear-day', wi: 'wi wi-day-sunny'},
+        { name: 'clear-night', wi: 'wi wi-night-clear'},
+        { name: 'rain', wi: 'wi wi-showers'},
+        { name: 'snow', wi: 'wi wi-snow'},
+        { name: 'sleet', wi: 'wi wi-sleet'},
+        { name: 'wind', wi: 'wi wi-strong-wind'},
+        { name: 'fog', wi: 'wi wi-fog'},
+        { name: 'cloudy', wi: 'wi wi-cloud'},
+        { name: 'partly-cloudy-day', wi: 'wi wi-day-cloudy'},
+        { name: 'partly-cloudy-night', wi: 'wi wi-night-alt-cloudy'},
+      ]
     }
   },
   methods: {
@@ -69,6 +81,7 @@ export default {
           this.weather = response.data
           this.hours = response.data.hourly.data.slice(0, 16)
           this.dailyWeather = response.data.daily.data
+          console.log(this.dailyWeather)
           // remove current day since that is already shown in CurrentWeather
           this.dailyWeather.shift()
         })
@@ -99,13 +112,11 @@ export default {
     height: auto;
     font-family: 'Open Sans', sans-serif;
     color: #212121;
-    /*background-image: url(./assets/grassland.jpg);*/
   }
 
   .wrapper {
     width: 80%;
     height: 100%;
-    /*background-color: rgba(139, 169, 238, 0.5);*/
     margin: 0 auto;
     text-align: center;
   }
@@ -152,6 +163,10 @@ export default {
   @media screen and (max-width: 627px) {
     header > h1 {
       font-size: 1rem;
+    }
+
+    footer {
+      height: 80px;
     }
   }
 

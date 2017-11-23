@@ -13,7 +13,8 @@
 					<div>feels like {{ Math.floor(weather.currently.apparentTemperature) }}&deg;F</div>
 				</div>
 				<div class="current-conditions">
-					<h1><i class="wi wi-night-sleet"></i></h1>
+					<!-- <h1><i class="wi wi-night-sleet"></i></h1> -->
+					<h1><i v-bind:class="setIcon()"></i></h1>
 				</div>
 			</div>
 		</div>
@@ -24,7 +25,22 @@
 export default {
 	/* eslint-disable */
   name: 'currentWeather',
-  props: ['weather', 'cityName']
+  props: ['weather', 'cityName', 'iconList'],
+  data () {
+  	return {
+  		weatherIcon: ''
+  	}
+  },
+  methods: {
+  	setIcon () {
+  		let icon = this.weather.currently.icon
+  		for (let i = 0; i < this.iconList.length; i++) {
+  			if (icon === this.iconList[i].name) {
+  				return this.iconList[i].wi
+  			}
+  		}
+  	}
+  }
 }
 </script>
 
