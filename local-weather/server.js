@@ -15,7 +15,7 @@ app.use(serveStatic(path.join(__dirname + "/dist")))
 const api_key = config.DARK_SKY_API_KEY
 
 app.post('/', (req, res) => {
-  axios.get(`https://api.darksky.net/forecast/eac25f3d3f4fdd8401944180915a2d6e/${req.body.body}`)
+  axios.get(`https://api.darksky.net/forecast/${api_key}/${req.body.body}`)
   .then((response) => {
 	  res.send(response.data)
 	})
