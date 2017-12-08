@@ -68,7 +68,7 @@ export default {
   methods: {
     // gets lat and lng of user input
     getGPSCoordinates (text) {
-      axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${text}&key=AIzaSyDNqcVE7gtu1f9gB1LxQ8cJFQcl1sW1utM`)
+      axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${text}&key=${apiKey}`)
       .then((response) => {
         this.cityName = response.data.results[0].formatted_address
         this.geocode = response.data.results[0].geometry.location
