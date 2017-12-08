@@ -62,7 +62,7 @@ export default {
         { name: 'partly-cloudy-day', wi: 'wi wi-day-cloudy'},
         { name: 'partly-cloudy-night', wi: 'wi wi-night-alt-cloudy'},
       ],
-      apiKey = config.MAP_API_KEY
+      apiKey: config.MAP_API_KEY
     }
   },
   methods: {
