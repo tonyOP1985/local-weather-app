@@ -29,7 +29,7 @@ import Forecast from './components/Forecast'
 import Hourly from './components/Hourly'
 import CurrentDetails from './components/CurrentDetails'
 import axios from 'axios'
-import config from './..api.json'
+import config from './api.json'
 
 export default {
   name: 'app',
