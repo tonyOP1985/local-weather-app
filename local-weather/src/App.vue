@@ -78,7 +78,7 @@ export default {
     },
     postWeather () {
       // sends request to local server to make make request from forecast.io
-      axios.post('http://localhost:3000', { body: this.address })
+      axios.post('http://infinite-crag-36545.heroku.com', { body: this.address })
         .then((response) => {
           this.weather = response.data.currently
           this.setIcon()
