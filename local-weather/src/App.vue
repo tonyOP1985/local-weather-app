@@ -29,7 +29,6 @@ import Forecast from './components/Forecast'
 import Hourly from './components/Hourly'
 import CurrentDetails from './components/CurrentDetails'
 import axios from 'axios'
-import key from './..config/prod.env.js'
 
 export default {
   name: 'app',
@@ -61,14 +60,13 @@ export default {
         { name: 'cloudy', wi: 'wi wi-cloud'},
         { name: 'partly-cloudy-day', wi: 'wi wi-day-cloudy'},
         { name: 'partly-cloudy-night', wi: 'wi wi-night-alt-cloudy'},
-      ],
-      apiKey: key.API_KEY
+      ]
     }
   },
   methods: {
     // gets lat and lng of user input
     getGPSCoordinates (text) {
-      axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${text}&key=${apiKey}`)
+      axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${text}&key=${API_KEY}`)
       .then((response) => {
         this.cityName = response.data.results[0].formatted_address
         this.geocode = response.data.results[0].geometry.location
