@@ -29,7 +29,7 @@ import Forecast from './components/Forecast'
 import Hourly from './components/Hourly'
 import CurrentDetails from './components/CurrentDetails'
 import axios from 'axios'
-import config from './api.json'
+import key from './..config/prod.env.js'
 
 export default {
   name: 'app',
@@ -62,7 +62,7 @@ export default {
         { name: 'partly-cloudy-day', wi: 'wi wi-day-cloudy'},
         { name: 'partly-cloudy-night', wi: 'wi wi-night-alt-cloudy'},
       ],
-      apiKey: config.MAP_API_KEY
+      apiKey: key.API_KEY
     }
   },
   methods: {
