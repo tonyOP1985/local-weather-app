@@ -77,8 +77,8 @@ export default {
     },
     postWeather () {
       // sends request to local server to make make request from forecast.io
-      // infinite-crag-36545.heroku.com
-      axios.post('https://localweatherapp-tonyop.herokuapp.com/', { body: this.address })
+      // localweatherapp-tonyop.herokuapp.com
+      axios.post('https://localhost:5000/', { body: this.address })
         .then((response) => {
           this.weather = response.data.currently
           this.setIcon()

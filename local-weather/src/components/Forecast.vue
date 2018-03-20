@@ -5,7 +5,7 @@
 				<h1>{{ timeToString(day.time) }}</h1>
 			</div>
 			<div class="temp">
-				<h1>{{ Math.floor(day.temperatureHigh) }}&deg;F / {{ Math.floor(day.temperatureLow) }}&deg;F</h1>
+				<h1>{{ Math.floor(day.temperatureHigh) || Math.floor(day.temperatureMax) }}&deg;F / {{ Math.floor(day.temperatureLow) || Math.floor(day.temperatureMin) }}&deg;F</h1>
 			</div>
 			<div class="weather-icon">
 				<h1><i v-bind:class="setIcon(day.icon)"></i></h1>
