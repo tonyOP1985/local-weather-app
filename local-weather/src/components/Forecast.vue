@@ -28,14 +28,6 @@ export default {
     setIcon (icon) {
 			//	get correct weather icon
 			return this.iconList.find(i => icon === i.name).wi
-
-			//	left original code for reference
-  		// for (let i = 0; i < this.iconList.length; i++) {
-  		// 	if (icon === this.iconList[i].name) {
-			// 		console.log(this.iconList[i].wi)
-  		// 		return this.iconList[i].wi
-  		// 	}
-  		// }
   	}
   }
 }
