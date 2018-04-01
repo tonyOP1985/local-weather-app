@@ -37,7 +37,6 @@ export default {
 		height: 140px;
 		margin: 10px 0 60px 0;
 		display: inline-flex;
-		/*background: url(http://d2n937kkzrvirq.cloudfront.net/weather_backgrounds/clear_night@2x.jpg) no-repeat center center fixed;*/
 	}
 
 	.current {

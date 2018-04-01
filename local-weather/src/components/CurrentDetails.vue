@@ -39,6 +39,7 @@ export default {
 	name: 'currentDetails',
 	props: ['weather'],
 	methods: {
+		// converts degrees into cardinal directions
 		degToCompass (num) {
 			let val = Math.floor((num / 22.5) + 0.5)
 			let compass = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW']

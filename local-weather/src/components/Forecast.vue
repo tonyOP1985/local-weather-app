@@ -26,11 +26,14 @@ export default {
       return dateString
     },
     setIcon (icon) {
-  		for (let i = 0; i < this.iconList.length; i++) {
-  			if (icon === this.iconList[i].name) {
-  				return this.iconList[i].wi
-  			}
-  		}
+			//	get correct weather icon
+			return this.iconList.find(i => icon === i.name).wi
+  		// for (let i = 0; i < this.iconList.length; i++) {
+  		// 	if (icon === this.iconList[i].name) {
+			// 		console.log(this.iconList[i].wi)
+  		// 		return this.iconList[i].wi
+  		// 	}
+  		// }
   	}
   }
 }

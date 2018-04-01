@@ -1,7 +1,7 @@
 <template>
 	<div class="hourly-wrapper">
 		<ul>
-			<li v-for="(hour,index) in hours" v-if="index % 2 === 0" class="hourly">
+			<li v-for="(hour,index) in hours" v-bind:key="index" v-if="index % 2 === 0" class="hourly">
 				<p class="hour">{{ getHour(hour.time) }}</p>
 				<p class="temp">{{ Math.ceil(hour.temperature) }}&deg;F</p>
 			</li>

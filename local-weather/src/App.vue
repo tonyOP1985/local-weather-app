@@ -103,11 +103,7 @@ export default {
     },
     setIcon () {
   		let icon = this.weather.icon
-  		for (let i = 0; i < this.iconList.length; i++) {
-  			if (icon === this.iconList[i].name) {
-  				this.weather.icon = this.iconList[i].wi
-  			}
-  		}
+      this.weather.icon = this.iconList.find(i => icon === i.name).wi
   	}
   },
   mounted () {
