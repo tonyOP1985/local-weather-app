@@ -22,6 +22,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import Search from './components/Search';
 import CurrentWeather from './components/CurrentWeather';
 import Forecast from './components/Forecast';
