@@ -11,7 +11,6 @@
 
 <script>
 export default {
-	/* eslint-disable */
   name: 'search',
   data () {
     return {

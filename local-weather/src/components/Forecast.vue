@@ -16,7 +16,6 @@
 
 <script>
 export default {
-	/* eslint-disable */
   name: 'forecast',
   props: ['dailyWeather', 'iconList'],
   methods: {
