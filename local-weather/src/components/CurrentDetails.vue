@@ -35,7 +35,6 @@
 
 <script>
 export default {
-	/* eslint-disable */
 	name: 'currentDetails',
 	props: ['weather'],
 	methods: {
