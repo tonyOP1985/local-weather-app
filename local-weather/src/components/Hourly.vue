@@ -21,12 +21,12 @@ export default {
   },
   methods: {
   	getHour (time) {
-  		let options = { hour: '2-digit' }
-  		let now = new Date(time * 1000).toLocaleString('en-us', options)
-  		return now
+  		let options = { hour: '2-digit' };
+  		let now = new Date(time * 1000).toLocaleString('en-us', options);
+  		return now;
   	}
   }
-}
+};
 </script>
 
 <style>

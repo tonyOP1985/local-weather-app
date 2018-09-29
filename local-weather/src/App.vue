@@ -23,12 +23,12 @@
 
 <script>
 /* eslint-disable */
-import Search from './components/Search'
-import CurrentWeather from './components/CurrentWeather'
-import Forecast from './components/Forecast'
-import Hourly from './components/Hourly'
-import CurrentDetails from './components/CurrentDetails'
-import axios from 'axios'
+import Search from './components/Search';
+import CurrentWeather from './components/CurrentWeather';
+import Forecast from './components/Forecast';
+import Hourly from './components/Hourly';
+import CurrentDetails from './components/CurrentDetails';
+import axios from 'axios';
 
 export default {
   name: 'app',
@@ -67,50 +67,50 @@ export default {
   methods: {
     // gets lat and lng of user input
     getGPSCoordinates (text) {
-      axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${text}&key=AIzaSyDNqcVE7gtu1f9gB1LxQ8cJFQcl1sW1utM`)
+      axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${text}&key=AIzaSyDNqcVE7gtu1f9gB1LxQ8cJFQcl1sW1utM`);
       .then((response) => {
-        this.cityName = response.data.results[0].formatted_address
-        this.geocode = response.data.results[0].geometry.location
-        this.address = `${this.geocode.lat},${this.geocode.lng}`
-        this.postWeather()
-      })
+        this.cityName = response.data.results[0].formatted_address;
+        this.geocode = response.data.results[0].geometry.location;
+        this.address = `${this.geocode.lat},${this.geocode.lng}`;
+        this.postWeather();
+      });
     },
     postWeather () {
       // sends request to local server to make make request from forecast.io
       // localweatherapp-tonyop.herokuapp.com
       axios.post('https://localweatherapp-tonyop.herokuapp.com/', { body: this.address })
         .then((response) => {
-          this.weather = response.data.currently
-          this.setIcon()
-          this.hours = response.data.hourly.data.slice(0, 16)
-          this.dailyWeather = response.data.daily.data
+          this.weather = response.data.currently;
+          this.setIcon();
+          this.hours = response.data.hourly.data.slice(0, 16);
+          this.dailyWeather = response.data.daily.data;
           // remove current day since that is already shown in CurrentWeather
-          this.dailyWeather.shift()
+          this.dailyWeather.shift();
         })
         .catch((error) => {
-          console.log(error)
+          console.log(error);
         })
     },
     getGeolocation () {
       // gets lat and lng of client
       if (navigator) {
         navigator.geolocation.getCurrentPosition((position) => {
-          this.geoCoords = position.coords
-          this.address = `${this.geoCoords.latitude}, ${this.geoCoords.longitude}`
-          this.postWeather()
+          this.geoCoords = position.coords;
+          this.address = `${this.geoCoords.latitude}, ${this.geoCoords.longitude}`;
+          this.postWeather();
         })
       }
     },
     setIcon () {
-  		let icon = this.weather.icon
-      this.weather.icon = this.iconList.find(i => icon === i.name).wi
+  		let icon = this.weather.icon;
+      this.weather.icon = this.iconList.find(i => icon === i.name).wi;
   	}
   },
   mounted () {
-    this.getGeolocation()
-    this.cityName = 'Current Location'
+    this.getGeolocation();
+    this.cityName = 'Current Location';
   }
-}
+};
 </script>
 
 <style>

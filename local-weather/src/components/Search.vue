@@ -20,11 +20,11 @@ export default {
  	},
   methods: {
   	formSubmit (e) {
-  		this.$emit('formSubmit', this.city)
-  		e.preventDefault()
+  		this.$emit('formSubmit', this.city);
+  		e.preventDefault();
   	}
   }
-}
+};
 </script>
 
 <style scoped>

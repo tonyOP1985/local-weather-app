@@ -21,16 +21,16 @@ export default {
   props: ['dailyWeather', 'iconList'],
   methods: {
   	timeToString(date) {
-      let options = {weekday: 'long'}
-      let dateString = new Date(date * 1000).toLocaleDateString('en-US', options)
-      return dateString
+      let options = {weekday: 'long'};
+      let dateString = new Date(date * 1000).toLocaleDateString('en-US', options);
+      return dateString;
     },
     setIcon (icon) {
 			//	get correct weather icon
-			return this.iconList.find(i => icon === i.name).wi
+			return this.iconList.find(i => icon === i.name).wi;
   	}
   }
-}
+};
 </script>
 
 <style scoped>
